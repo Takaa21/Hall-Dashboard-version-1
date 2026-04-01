@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS | Environmental Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .scan-line {
+            animation: scan 4s linear infinite;
+        }
+        /* Custom scrollbar for professional feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#0a0f18] text-slate-200 min-h-screen font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-950 border-r border-white/5 p-6 hidden lg:flex flex-col">
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="layout-dashboard" class="text-slate-900 w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">CORE-BMS</span>
+            </div>
+            
+            <nav class="space-y-2 flex-1">
+                <a href="#" class="flex items-center gap-3 p-3 bg-white/5 text-emerald-400 rounded-xl border border-white/5">
+                    <i data-lucide="home" class="w-4 h-4"></i> Main Hall
+                </a>
+                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 text-slate-400 rounded-xl transition-all">
+                    <i data-lucide="layers" class="w-4 h-4"></i> Zone Map
+                </a>
+                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 text-slate-400 rounded-xl transition-all">
+                    <i data-lucide="bell" class="w-4 h-4"></i> Alerts
+                </a>
+            </nav>
+
+            <div class="mt-auto p-4 bg-slate-900/50 rounded-2xl border border-white/5">
+                <p class="text-[10px] uppercase text-slate-500 font-bold mb-1">Server Time</p>
+                <p class="text-xs font-mono">2026-04-01 16:45:22</p>
+            </div>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto p-4 lg:p-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-white">Grand Hall Alpha</h1>
+                    <p class="text-slate-400 flex items-center gap-2 mt-1">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                        Live System Monitoring Active
+                    </p>
+                </div>
+                
+                <div class="flex items-center gap-6 bg-slate-900/80 p-5 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl">
+                    <div class="relative flex items-center justify-center">
+                        <svg class="w-20 h-20 transform -rotate-90">
+                            <circle cx="40" cy="40" r="34" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-800" />
+                            <circle cx="40" cy="40" r="34" stroke="currentColor" stroke-width="6" fill="transparent" 
+                                    class="text-emerald-500" stroke-dasharray="213.6" stroke-dashoffset="53.4" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-sm font-bold text-white leading-none">75%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-500 font-black">Hall Capacity</p>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-3xl font-mono font-bold text-white">150</span>
+                            <span class="text-slate-500 font-medium">/ 200</span>
+                        </div>
+                        <p class="text-[10px] text-emerald-400 mt-1 font-semibold italic">Stable flow detected</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+                
+                <div class="xl:col-span-3 bg-slate-900/40 rounded-[2.5rem] border border-white/5 overflow-hidden relative shadow-2xl group">
+                    <div class="p-5 border-b border-white/5 flex justify-between items-center bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-semibold tracking-wide text-slate-200">THERMAL VISION OVERLAY</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-white/5 rounded-lg text-[10px] hover:bg-white/10">ZOOM</button>
+                            <button class="px-3 py-1 bg-white/5 rounded-lg text-[10px] hover:bg-white/10">RESET</button>
+                        </div>
+                    </div>
+                    
+                    <div class="h-[500px] relative bg-[#05080f]">
+                        <div class="absolute inset-0 p-8 opacity-10">
+                            <div class="w-full h-full border-[3px] border-slate-700 rounded-2xl flex items-center justify-center">
+                                <div class="grid grid-cols-4 w-full h-full">
+                                    <div class="border-r border-b border-slate-700"></div>
+                                    <div class="border-r border-b border-slate-700"></div>
+                                    <div class="border-r border-b border-slate-700"></div>
+                                    <div class="border-b border-slate-700"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-0 pointer-events-none">
+                            <div class="absolute w-40 h-40 bg-orange-600/30 rounded-full blur-[60px] animate-pulse" style="top:15%; left:25%;"></div>
+                            <div class="absolute w-12 h-12 bg-white/20 rounded-full blur-[20px]" style="top:25%; left:33%;"></div>
+                            
+                            <div class="absolute w-32 h-32 bg-red-600/20 rounded-full blur-[50px]" style="top:40%; left:60%;"></div>
+                            
+                            <div class="absolute w-48 h-32 bg-blue-500/20 rounded-full blur-[70px]" style="bottom:10%; right:15%;"></div>
+                        </div>
+                        
+                        <div class="scan-line absolute inset-x-0 h-[1px] bg-emerald-400/30 shadow-[0_0_20px_#10b981]"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-1 gap-4">
+                    <div class="bg-gradient-to-br from-slate-900 to-[#1e1e2d] p-6 rounded-[2rem] border border-white/5 hover:border-orange-500/50 transition-all shadow-xl group">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-orange-500/10 rounded-2xl text-orange-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="thermometer"></i>
+                            </div>
+                            <span class="text-[10px] font-bold text-orange-400 bg-orange-400/10 px-2 py-1 rounded-md tracking-tighter">+0.2° Trending</span>
+                        </div>
+                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Ambient Temp</p>
+                        <h3 class="text-4xl font-bold text-white mt-2 italic">24.1<span class="text-slate-600 text-xl not-italic">°C</span></h3>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-slate-900 to-[#1e1e2d] p-6 rounded-[2rem] border border-white/5 hover:border-blue-500/50 transition-all shadow-xl group">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-blue-500/10 rounded-2xl text-blue-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="droplets"></i>
+                            </div>
+                            <div class="w-12 h-2 bg-slate-800 rounded-full overflow-hidden mt-3">
+                                <div class="bg-blue-500 h-full w-[48%]"></div>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Humidity</p>
+                        <h3 class="text-4xl font-bold text-white mt-2 italic">48<span class="text-slate-600 text-xl not-italic">%</span></h3>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-slate-900 to-[#1e1e2d] p-6 rounded-[2rem] border border-white/5 hover:border-emerald-500/50 transition-all shadow-xl group">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-emerald-500/10 rounded-2xl text-emerald-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="wind"></i>
+                            </div>
+                            <div class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] rounded-md font-bold uppercase">Optimal</div>
+                        </div>
+                        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Air Quality Index</p>
+                        <h3 class="text-4xl font-bold text-white mt-2 italic">12</h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize the icons after the DOM is loaded
+        lucide.createIcons();
+    </script>
+</body>
+</html>
